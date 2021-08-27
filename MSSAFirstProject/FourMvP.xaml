@@ -1,0 +1,1523 @@
+﻿<UserControl x:Class="MSSAFirstProject.FourMvP"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MSSAFirstProject"
+             xmlns:gif="http://wpfanimatedgif.codeplex.com"
+             mc:Ignorable="d" 
+             d:DesignHeight="800" d:DesignWidth="1200">
+    
+    <Border Padding="2">
+        <Grid x:Name="gridMvPGuildBackground">
+            <!-- Create a Background image for this window-->
+            <Image gif:ImageBehavior.AnimatedSource="C:\Users\Hung\Pictures\ImageSourcePics\gif\MvP.gif" Stretch="Fill"/>
+
+            <!-- Create Kafra for Storage Access-->
+            <Grid x:Name="gridMvPKafra">
+                <Image Source="C:\Users\Hung\Pictures\ImageSourcePics\kafra.png"
+                   Height="300"
+                   VerticalAlignment="Bottom"
+                   HorizontalAlignment="Center"
+                   Margin="0,0,900,0"/>
+
+                <Image gif:ImageBehavior.AnimatedSource="C:\Users\Hung\Pictures\ImageSourcePics\wwyltd.gif"
+                   gif:ImageBehavior.RepeatBehavior="1x"
+                   Height="100"
+                   Margin="0,80,750,0"/>
+
+                <!-- Create Button for Open button for datagrid and edits-->
+                <Grid x:Name="gridMvPKafraOptions">
+
+                    <!-- Create a button to Display datagrid-->
+                    <Button x:Name="btndispMvPStorage" Visibility="Hidden"
+                        Content="Open Guild Storage"
+                        Click="btndispMvPStorage_Click"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Center"
+                        FontSize="30"
+                        FontFamily="Poor Richard"
+                        Foreground="Black"
+                        Width="280"
+                        Height="70"
+                        Margin="0,0,770,100" 
+                        BorderThickness="4"
+                        Background="LightCyan">
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="20"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+
+                    <!-- Need to make grid hidden-->
+                    <Grid x:Name="gridMvPStorageEdits" Visibility="Hidden">
+                        <!-- Create a datagrid-->
+                        <DataGrid x:Name="dgMvPStorage"
+                              Background="{x:Null}"
+                              ColumnWidth="*"
+                              Width="730" Height="370" 
+                              HorizontalAlignment="Right" 
+                              VerticalAlignment="Top"
+                              Margin="0,10,10,0">
+
+                        </DataGrid>
+
+                        <!-- Create a Grid for View/Add/Update/Delete-->
+                        <Grid x:Name="gridMvPVAUD" Margin="0,70,270,0">
+                            <Button x:Name="btnMvPViewItems" IsEnabled="True"
+                                    Content="View Items"
+                                    Click="btnMvPViewItems_Click"
+                                    HorizontalAlignment="Right"
+                                    VerticalAlignment="Center"
+                                    FontSize="30"
+                                    FontFamily="Poor Richard"
+                                    Foreground="Black"
+                                    Width="240"
+                                    Height="50"
+                                    Margin="0,180,400,0" 
+                                    BorderThickness="4"
+                                    Background="LightSteelBlue">
+                                <Button.Resources>
+                                    <Style TargetType="Border">
+                                        <Setter Property="CornerRadius" Value="20"/>
+                                    </Style>
+                                </Button.Resources>
+                            </Button>
+
+                            <Button x:Name="btnMvPAddItems" IsEnabled="True"
+                                    Content="Add New Item"
+                                    Click="btnMvPAddItems_Click"
+                                    HorizontalAlignment="Right"
+                                    VerticalAlignment="Center"
+                                    FontSize="30"
+                                    FontFamily="Poor Richard"
+                                    Foreground="Black"
+                                    Width="240"
+                                    Height="50"
+                                    Margin="0,320,400,0" 
+                                    BorderThickness="4"
+                                    Background="LightSteelBlue">
+                                <Button.Resources>
+                                    <Style TargetType="Border">
+                                        <Setter Property="CornerRadius" Value="20"/>
+                                    </Style>
+                                </Button.Resources>
+                            </Button>
+
+                            <Button x:Name="btnMvPUpdate" IsEnabled="True"
+                                    Content="Update Item"
+                                    Click="btnMvPUpdate_Click"
+                                    HorizontalAlignment="Right"
+                                    VerticalAlignment="Center"
+                                    FontSize="30"
+                                    FontFamily="Poor Richard"
+                                    Foreground="Black"
+                                    Width="240"
+                                    Height="50"
+                                    Margin="0,460,400,0" 
+                                    BorderThickness="4"
+                                    Background="LightSteelBlue">
+                                <Button.Resources>
+                                    <Style TargetType="Border">
+                                        <Setter Property="CornerRadius" Value="20"/>
+                                    </Style>
+                                </Button.Resources>
+                            </Button>
+
+                            <Button x:Name="btnMvPDelete" IsEnabled="True"
+                                    Content="Delete Item"
+                                    Click="btnMvPDelete_Click"
+                                    HorizontalAlignment="Right"
+                                    VerticalAlignment="Center"
+                                    FontSize="30"
+                                    FontFamily="Poor Richard"
+                                    Foreground="Black"
+                                    Width="240"
+                                    Height="50"
+                                    Margin="0,600,400,0" 
+                                    BorderThickness="4"
+                                    Background="LightSteelBlue">
+                                <Button.Resources>
+                                    <Style TargetType="Border">
+                                        <Setter Property="CornerRadius" Value="20"/>
+                                    </Style>
+                                </Button.Resources>
+                            </Button>
+                        </Grid>
+
+                        <!-- Create a grid for View Buttons, make the grid hidden and is visibled when clicked-->
+                        <Grid x:Name="gridMvPViews" Visibility="Hidden" Margin="0,0,340,0">
+                            <Button x:Name="btnMvPViewCons"
+                                Content="View Consumables"
+                                Click="btnMvPViewCons_Click"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Center"
+                                FontSize="30"
+                                FontFamily="Poor Richard"
+                                Foreground="Black"
+                                Width="260"
+                                Height="60"
+                                Margin="0,90,20,0" 
+                                BorderThickness="4"
+                                Background="LightGreen">
+                                <Button.Resources>
+                                    <Style TargetType="Border">
+                                        <Setter Property="CornerRadius" Value="20"/>
+                                    </Style>
+                                </Button.Resources>
+                            </Button>
+
+                            <Button x:Name="btnMvPViewWpns"
+                                Content="View Weapons"
+                                Click="btnMvPViewWpns_Click"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Center"
+                                FontSize="30"
+                                FontFamily="Poor Richard"
+                                Foreground="Black"
+                                Width="260"
+                                Height="60"
+                                Margin="0,390,20,0" 
+                                BorderThickness="4"
+                                Background="LightGreen">
+                                <Button.Resources>
+                                    <Style TargetType="Border">
+                                        <Setter Property="CornerRadius" Value="20"/>
+                                    </Style>
+                                </Button.Resources>
+                            </Button>
+
+                            <Button x:Name="btnMvPViewArmos"
+                                Content="View Armors"
+                                Click="btnMvPViewArmos_Click"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Center"
+                                FontSize="30"
+                                FontFamily="Poor Richard"
+                                Foreground="Black"
+                                Width="260"
+                                Height="60"
+                                Margin="0,240,20,0" 
+                                BorderThickness="4"
+                                Background="LightGreen">
+                                <Button.Resources>
+                                    <Style TargetType="Border">
+                                        <Setter Property="CornerRadius" Value="20"/>
+                                    </Style>
+                                </Button.Resources>
+                            </Button>
+
+                            <Button x:Name="btnMvPViewCards"
+                                Content="View Cards"
+                                Click="btnMvPViewCards_Click"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Center"
+                                FontSize="30"
+                                FontFamily="Poor Richard"
+                                Foreground="Black"
+                                Width="260"
+                                Height="60"
+                                Margin="0,530,20,0" 
+                                BorderThickness="4"
+                                Background="LightGreen">
+                                <Button.Resources>
+                                    <Style TargetType="Border">
+                                        <Setter Property="CornerRadius" Value="20"/>
+                                    </Style>
+                                </Button.Resources>
+                            </Button>
+
+                            <Button x:Name="btnMvPViewMisc"
+                                Content="View Miscellaneous"
+                                Click="btnMvPViewMisc_Click"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Center"
+                                FontSize="30"
+                                FontFamily="Poor Richard"
+                                Foreground="Black"
+                                Width="260"
+                                Height="60"
+                                Margin="0,670,20,0" 
+                                BorderThickness="4"
+                                Background="LightGreen">
+                                <Button.Resources>
+                                    <Style TargetType="Border">
+                                        <Setter Property="CornerRadius" Value="20"/>
+                                    </Style>
+                                </Button.Resources>
+                            </Button>
+                        </Grid>
+
+                        <!-- Create a grid for Adding items buttons, make grid hidden and visibled when clicked-->
+                        <Grid x:Name="gridMvPAdds" Visibility="Hidden">
+                            <Button x:Name="btnMvPAddCons"
+                                Content="Add  New Consumables"
+                                Click="btnMvPAddCons_Click"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Center"
+                                FontSize="30"
+                                Grid.Column="2"
+                                Grid.Row="3"
+                                FontFamily="Poor Richard"
+                                Foreground="Black"
+                                Width="295"
+                                Height="60"
+                                Margin="0,90,20,0" 
+                                BorderThickness="4"
+                                Background="LightCoral">
+                                <Button.Resources>
+                                    <Style TargetType="Border">
+                                        <Setter Property="CornerRadius" Value="20"/>
+                                    </Style>
+                                </Button.Resources>
+                            </Button>
+
+                            <Button x:Name="btnMvPAddWpns"
+                                Content="Add New Weapons"
+                                Click="btnMvPAddWpns_Click"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Center"
+                                FontSize="30"
+                                Grid.Column="2"
+                                Grid.Row="3"
+                                FontFamily="Poor Richard"
+                                Foreground="Black"
+                                Width="295"
+                                Height="60"
+                                Margin="0,390,20,0" 
+                                BorderThickness="4"
+                                Background="LightCoral">
+                                <Button.Resources>
+                                    <Style TargetType="Border">
+                                        <Setter Property="CornerRadius" Value="20"/>
+                                    </Style>
+                                </Button.Resources>
+                            </Button>
+
+                            <Button x:Name="btnMvPAddArmos"
+                                Content="Add New Armor"
+                                Click="btnMvPAddArmos_Click"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Center"
+                                FontSize="30"
+                                Grid.Column="2"
+                                Grid.Row="3"
+                                FontFamily="Poor Richard"
+                                Foreground="Black"
+                                Width="295"
+                                Height="60"
+                                Margin="0,240,20,0" 
+                                BorderThickness="4"
+                                Background="LightCoral">
+                                <Button.Resources>
+                                    <Style TargetType="Border">
+                                        <Setter Property="CornerRadius" Value="20"/>
+                                    </Style>
+                                </Button.Resources>
+                            </Button>
+
+                            <Button x:Name="btnMvPAddCards"
+                                Content="Add New Card"
+                                Click="btnMvPAddCards_Click"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Center"
+                                FontSize="30"
+                                Grid.Column="2"
+                                Grid.Row="3"
+                                FontFamily="Poor Richard"
+                                Foreground="Black"
+                                Width="295"
+                                Height="60"
+                                Margin="0,530,20,0" 
+                                BorderThickness="4"
+                                Background="LightCoral">
+                                <Button.Resources>
+                                    <Style TargetType="Border">
+                                        <Setter Property="CornerRadius" Value="20"/>
+                                    </Style>
+                                </Button.Resources>
+                            </Button>
+
+                            <Button x:Name="btnMvPAddMisc"
+                                Content="Add New Miscellaneous"
+                                Click="btnMvPAddMisc_Click"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Center"
+                                FontSize="30"
+                                Grid.Column="2"
+                                Grid.Row="3"
+                                FontFamily="Poor Richard"
+                                Foreground="Black"
+                                Width="295"
+                                Height="60"
+                                Margin="0,670,20,0" 
+                                BorderThickness="4"
+                                Background="LightCoral">
+                                <Button.Resources>
+                                    <Style TargetType="Border">
+                                        <Setter Property="CornerRadius" Value="20"/>
+                                    </Style>
+                                </Button.Resources>
+                            </Button>
+                        </Grid>
+                    </Grid>
+
+                    <!-- Create Grid for Adding new Consumables, textblock, listblock, etc...-->
+                    <Grid x:Name="gridMvPAddNewCons" Visibility="Hidden"
+                          Width="700"
+                          Height="350"
+                          HorizontalAlignment="Right"
+                          Margin="0,0,5,400"
+                          >
+                        <!-- Define rows and columns-->
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        
+                        <!--Create textblocks for Text Descriptions on column 0, grid 0-3-->
+                        <!-- Create textblock for GSItemID-->
+                        <TextBlock x:Name="txtblockGSItemID" 
+                                   Text="Item ID : "
+                                   Foreground="AntiqueWhite"
+                                   FontSize="30"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Grid.Column="0"
+                                   Grid.Row="0"
+                                   />
+                        <!-- Create textblock for GSItemType-->
+                        <TextBlock x:Name="txtblockGSItemType" 
+                                   Text="Item Type : "
+                                   Foreground="AntiqueWhite"
+                                   FontSize="30"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Grid.Column="0"
+                                   Grid.Row="1"
+                                   />
+                        <!-- Create Texblock for GSItemDescription-->
+                        <TextBlock x:Name="txtblockGSItemDescription" 
+                                   Text="Item Description : "
+                                   Foreground="AntiqueWhite"
+                                   FontSize="30"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Grid.Column="0"
+                                   Grid.Row="2"
+                                   />
+                        <!-- Create textblock for Qty-->
+                        <TextBlock x:Name="txtblockGSItemQty" 
+                                   Text="Quantity : "
+                                   Foreground="AntiqueWhite"
+                                   FontSize="30"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Grid.Column="0"
+                                   Grid.Row="3"
+                                   />
+
+                        <!--Create textblock for GuildID-->
+                        <TextBlock x:Name="txtblockItemGuildID" 
+                                   Text="Guild ID: "
+                                   Foreground="AntiqueWhite"
+                                   FontSize="30"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Grid.Column="0"
+                                   Grid.Row="4"
+                                   />
+
+                        <!--Create text box for user input-->
+                        <TextBox x:Name="txtBoxItemID"
+                                 Foreground="AntiqueWhite"
+                                 Grid.Column="1"
+                                 Grid.Row="0"
+                                 FontSize="30"
+                                 Height="50"
+                                 Width="320"
+                                 HorizontalAlignment="Center"
+                                 VerticalAlignment="Center"
+                                 Background="{x:Null}"
+                                 IsReadOnly="True"/>
+                        
+                        <!--Create Combo Box for multiple entries-->
+                        <ComboBox x:Name="comBoxItemType"
+                                  Grid.Column="1"
+                                  Grid.Row="1"
+                                  FontSize="30"
+                                  Height="50"
+                                  Width="320"
+                                  HorizontalAlignment="Center"
+                                  VerticalAlignment="Center"
+                                  Background="{x:Null}">
+                            <ComboBoxItem>Consumable</ComboBoxItem>
+                        </ComboBox>
+                        
+                        <!-- Create textbox for Item Description-->
+                        <TextBox x:Name="txtBoxItemDesc"
+                                 Foreground="AntiqueWhite"
+                                 Grid.Column="1"
+                                 Grid.Row="2"
+                                 FontSize="30"
+                                 Height="50"
+                                 Width="320"
+                                 HorizontalAlignment="Center"
+                                 VerticalAlignment="Center"
+                                 Background="{x:Null}"/>
+                        
+                        <!-- Create textbox for Quantity-->
+                        <TextBox x:Name="txtBoxQty"
+                                 Foreground="AntiqueWhite"
+                                 Grid.Column="1"
+                                 Grid.Row="3"
+                                 FontSize="30"
+                                 Height="50"
+                                 Width="320"
+                                 HorizontalAlignment="Center"
+                                 VerticalAlignment="Center"
+                                 Background="{x:Null}"/>
+
+                        <TextBox x:Name="txtBoxConsGuildID"
+                                 Foreground="AntiqueWhite"
+                                 Grid.Column="1"
+                                 Grid.Row="4"
+                                 FontSize="30"
+                                 Height="50"
+                                 Width="320"
+                                 HorizontalAlignment="Center"
+                                 VerticalAlignment="Center"
+                                 Background="{x:Null}"/>
+
+                        <!-- Create button for Adding the Item-->
+                        <Button x:Name="btnAddingItem"
+                                 Content="Add Consumable"
+                                 Click="btnAddingItem_Click"
+                                 HorizontalAlignment="Center"
+                                 VerticalAlignment="Center"
+                                 FontSize="30"
+                                 Grid.Column="1"
+                                 Grid.Row="5"
+                                 FontFamily="Poor Richard"
+                                 Foreground="Black"
+                                 Width="280"
+                                 Height="50"
+                                 Margin="0,0,10,0" 
+                                 BorderThickness="4"
+                                 Background="LawnGreen">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="20"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+
+                        <!-- Create button for Exit-->
+                        <Button x:Name="btnExitAdd"
+                                 Content="Exit"
+                                 Click="btnExitAdd_Click"
+                                 HorizontalAlignment="Center"
+                                 VerticalAlignment="Center"
+                                 FontSize="30"
+                                 Grid.Column="0"
+                                 Grid.Row="5"
+                                 FontFamily="Poor Richard"
+                                 Foreground="Black"
+                                 Width="200"
+                                 Height="50"
+                                 Margin="0,0,10,0" 
+                                 BorderThickness="4"
+                                 Background="LightCoral">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="20"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+
+                    </Grid>
+                    
+                    <!-- Create Grid for Adding New Armor-->
+                    <Grid x:Name="gridMvPAddNewAr" Visibility="Hidden" 
+                          Width="700"
+                          Height="350"
+                          HorizontalAlignment="Right"
+                          Margin="0,0,5,400"
+                          >
+                        <!-- Define rows and columns-->
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <!--Create textblocks for Text Descriptions on column 0, grid 0-3-->
+                        <!-- Create textblock for GSItemID-->
+                        <TextBlock x:Name="txtblockGSItemIDAr" 
+                                   Text="Item ID : "
+                                   Foreground="AntiqueWhite"
+                                   FontSize="30"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Grid.Column="0"
+                                   Grid.Row="0"
+                                   />
+                        <!-- Create textblock for GSItemType-->
+                        <TextBlock x:Name="txtblockGSItemTypeAr" 
+                                   Text="Item Type : "
+                                   Foreground="AntiqueWhite"
+                                   FontSize="30"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Grid.Column="0"
+                                   Grid.Row="1"
+                                   />
+                        <!-- Create Texblock for GSItemDescription-->
+                        <TextBlock x:Name="txtblockGSItemDescriptionAr" 
+                                   Text="Item Description : "
+                                   Foreground="AntiqueWhite"
+                                   FontSize="30"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Grid.Column="0"
+                                   Grid.Row="2"
+                                   />
+                        <!-- Create textblock for Qty-->
+                        <TextBlock x:Name="txtblockGSItemQtyAr" 
+                                   Text="Quantity : "
+                                   Foreground="AntiqueWhite"
+                                   FontSize="30"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Grid.Column="0"
+                                   Grid.Row="3"
+                                   />
+
+                        <!--Create textblock for GuildID-->
+                        <TextBlock x:Name="txtblockArGuildID" 
+                                   Text="Guild ID: "
+                                   Foreground="AntiqueWhite"
+                                   FontSize="30"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Grid.Column="0"
+                                   Grid.Row="4"
+                                   />
+
+                        <!--Create text box for user input-->
+                        <TextBox x:Name="txtBoxItemIDAr"
+                                 Foreground="AntiqueWhite"
+                                 Grid.Column="1"
+                                 Grid.Row="0"
+                                 FontSize="30"
+                                 Height="50"
+                                 Width="320"
+                                 HorizontalAlignment="Center"
+                                 VerticalAlignment="Center"
+                                 Background="{x:Null}"
+                                 IsReadOnly="True"/>
+
+                        <!--Create Combo Box for multiple entries-->
+                        <ComboBox x:Name="comBoxItemTypeAr"
+                                  FontSize="30"
+                                  Grid.Column="1"
+                                  Grid.Row="1"
+                                  Height="50"
+                                  Width="320"
+                                  HorizontalAlignment="Center"
+                                  VerticalAlignment="Center"
+                                  Background="{x:Null}">
+                            <ComboBoxItem>Head Gear</ComboBoxItem>
+                            <ComboBoxItem>Armor</ComboBoxItem>
+                            <ComboBoxItem>Shield</ComboBoxItem>
+                            <ComboBoxItem>Garment</ComboBoxItem>
+                            <ComboBoxItem>Shoes</ComboBoxItem>
+                            <ComboBoxItem>Accessory</ComboBoxItem>
+                        </ComboBox>
+
+                        <!-- Create textbox for Item Description-->
+                        <TextBox x:Name="txtBoxItemDescAr"
+                                 Foreground="AntiqueWhite"
+                                 Grid.Column="1"
+                                 Grid.Row="2"
+                                 FontSize="30"
+                                 Height="50"
+                                 Width="320"
+                                 HorizontalAlignment="Center"
+                                 VerticalAlignment="Center"
+                                 Background="{x:Null}"/>
+
+                        <!-- Create textbox for Quantity-->
+                        <TextBox x:Name="txtBoxQtyAr"
+                                 Foreground="AntiqueWhite"
+                                 Grid.Column="1"
+                                 Grid.Row="3"
+                                 FontSize="30"
+                                 Height="50"
+                                 Width="320"
+                                 HorizontalAlignment="Center"
+                                 VerticalAlignment="Center"
+                                 Background="{x:Null}"/>
+
+                        <TextBox x:Name="txtBoxArGuildID"
+                                 Foreground="AntiqueWhite"
+                                 Text="1"
+                                 Grid.Column="1"
+                                 Grid.Row="4"
+                                 FontSize="30"
+                                 Height="50"
+                                 Width="320"
+                                 HorizontalAlignment="Center"
+                                 VerticalAlignment="Center"
+                                 Background="{x:Null}"
+                                 IsReadOnly="True"/>
+
+                        <!-- Create button for Adding the Item-->
+                        <Button x:Name="btnAddingItemAr"
+                                 Content="Add New Armor"
+                                 Click="btnAddingItemAr_Click"
+                                 HorizontalAlignment="Center"
+                                 VerticalAlignment="Center"
+                                 FontSize="30"
+                                 Grid.Column="1"
+                                 Grid.Row="5"
+                                 FontFamily="Poor Richard"
+                                 Foreground="Black"
+                                 Width="280"
+                                 Height="50"
+                                 Margin="0,0,10,0" 
+                                 BorderThickness="4"
+                                 Background="LawnGreen">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="20"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+
+                        <!-- Create button for Exit-->
+                        <Button x:Name="btnExitAddAr"
+                                 Content="Exit"
+                                 Click="btnExitAddAr_Click"
+                                 HorizontalAlignment="Center"
+                                 VerticalAlignment="Center"
+                                 FontSize="30"
+                                 Grid.Column="0"
+                                 Grid.Row="5"
+                                 FontFamily="Poor Richard"
+                                 Foreground="Black"
+                                 Width="200"
+                                 Height="50"
+                                 Margin="0,0,10,0" 
+                                 BorderThickness="4"
+                                 Background="LightCoral">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="20"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+
+                    </Grid>
+                    
+                    <!-- Create Grid for Adding New Weapon-->
+                    <Grid x:Name="gridMvPAddNewWpn" Visibility="Hidden" 
+                          Width="700"
+                          Height="350"
+                          HorizontalAlignment="Right"
+                          Margin="0,0,5,400"
+                          >
+                        <!-- Define rows and columns-->
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <!--Create textblocks for Text Descriptions on column 0, grid 0-3-->
+                        <!-- Create textblock for GSItemID-->
+                        <TextBlock x:Name="txtblockGSItemIDWpn" 
+                                   Text="Item ID : "
+                                   Foreground="AntiqueWhite"
+                                   FontSize="30"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Grid.Column="0"
+                                   Grid.Row="0"
+                                   />
+                        <!-- Create textblock for GSItemType-->
+                        <TextBlock x:Name="txtblockGSItemTypeWpn" 
+                                   Text="Item Type : "
+                                   Foreground="AntiqueWhite"
+                                   FontSize="30"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Grid.Column="0"
+                                   Grid.Row="1"
+                                   />
+                        <!-- Create Texblock for GSItemDescription-->
+                        <TextBlock x:Name="txtblockGSItemDescriptionWpn" 
+                                   Text="Item Description : "
+                                   Foreground="AntiqueWhite"
+                                   FontSize="30"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Grid.Column="0"
+                                   Grid.Row="2"
+                                   />
+                        <!-- Create textblock for Qty-->
+                        <TextBlock x:Name="txtblockGSItemQtyWpn" 
+                                   Text="Quantity : "
+                                   Foreground="AntiqueWhite"
+                                   FontSize="30"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Grid.Column="0"
+                                   Grid.Row="3"
+                                   />
+
+                        <!--Create textblock for GuildID-->
+                        <TextBlock x:Name="txtblockWpnGuildID" 
+                                   Text="Guild ID: "
+                                   Foreground="AntiqueWhite"
+                                   FontSize="30"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Grid.Column="0"
+                                   Grid.Row="4"
+                                   />
+
+                        <!--Create text box for user input-->
+                        <TextBox x:Name="txtBoxItemIDWpn"
+                                 Foreground="AntiqueWhite"
+                                 Grid.Column="1"
+                                 Grid.Row="0"
+                                 FontSize="30"
+                                 Height="50"
+                                 Width="320"
+                                 HorizontalAlignment="Center"
+                                 VerticalAlignment="Center"
+                                 Background="{x:Null}"
+                                 IsReadOnly="True"/>
+
+                        <!--Create Combo Box for multiple entries-->
+                        <ComboBox x:Name="comBoxItemTypeWpn"
+                                  FontSize="30"
+                                  Grid.Column="1"
+                                  Grid.Row="1"
+                                  Height="50"
+                                  Width="320"
+                                  HorizontalAlignment="Center"
+                                  VerticalAlignment="Center"
+                                  Background="{x:Null}">
+                            <ComboBoxItem>1-Hand Sword</ComboBoxItem>
+                            <ComboBoxItem>2-Hand Sword</ComboBoxItem>
+                            <ComboBoxItem>1-Hand Spear</ComboBoxItem>
+                            <ComboBoxItem>2-Hand Spear</ComboBoxItem>
+                            <ComboBoxItem>1-Hand Staff</ComboBoxItem>
+                            <ComboBoxItem>2-Hand Staff</ComboBoxItem>
+                            <ComboBoxItem>Dagger</ComboBoxItem>
+                            <ComboBoxItem>Katar</ComboBoxItem>
+                            <ComboBoxItem>Bow</ComboBoxItem>
+                            <ComboBoxItem>Guitar</ComboBoxItem>
+                            <ComboBoxItem>Whip</ComboBoxItem>
+                            <ComboBoxItem>Huuma</ComboBoxItem>
+                        </ComboBox>
+
+                        <!-- Create textbox for Item Description-->
+                        <TextBox x:Name="txtBoxItemDescWpn"
+                                 Foreground="AntiqueWhite"
+                                 Grid.Column="1"
+                                 Grid.Row="2"
+                                 FontSize="30"
+                                 Height="50"
+                                 Width="320"
+                                 HorizontalAlignment="Center"
+                                 VerticalAlignment="Center"
+                                 Background="{x:Null}"/>
+
+                        <!-- Create textbox for Quantity-->
+                        <TextBox x:Name="txtBoxQtyWpn"
+                                 Foreground="AntiqueWhite"
+                                 Grid.Column="1"
+                                 Grid.Row="3"
+                                 FontSize="30"
+                                 Height="50"
+                                 Width="320"
+                                 HorizontalAlignment="Center"
+                                 VerticalAlignment="Center"
+                                 Background="{x:Null}"/>
+
+                        <TextBox x:Name="txtBoxWpnGuildID"
+                                 Foreground="AntiqueWhite"
+                                 Text="1"
+                                 Grid.Column="1"
+                                 Grid.Row="4"
+                                 FontSize="30"
+                                 Height="50"
+                                 Width="320"
+                                 HorizontalAlignment="Center"
+                                 VerticalAlignment="Center"
+                                 Background="{x:Null}"
+                                 IsReadOnly="True"/>
+
+                        <!-- Create button for Adding the Item-->
+                        <Button x:Name="btnAddingItemWpn"
+                                 Content="Add New Weapon"
+                                 Click="btnAddingItemWpn_Click"
+                                 HorizontalAlignment="Center"
+                                 VerticalAlignment="Center"
+                                 FontSize="30"
+                                 Grid.Column="1"
+                                 Grid.Row="5"
+                                 FontFamily="Poor Richard"
+                                 Foreground="Black"
+                                 Width="270"
+                                 Height="50"
+                                 Margin="0,0,10,0" 
+                                 BorderThickness="4"
+                                 Background="LawnGreen">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="20"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+
+                        <!-- Create button for Exit-->
+                        <Button x:Name="btnExitAddWpn"
+                                 Content="Exit"
+                                 Click="btnExitAddWpn_Click"
+                                 HorizontalAlignment="Center"
+                                 VerticalAlignment="Center"
+                                 FontSize="30"
+                                 Grid.Column="0"
+                                 Grid.Row="5"
+                                 FontFamily="Poor Richard"
+                                 Foreground="Black"
+                                 Width="200"
+                                 Height="50"
+                                 Margin="0,0,10,0" 
+                                 BorderThickness="4"
+                                 Background="LightCoral">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="20"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+
+                    </Grid>
+                    
+                    <!-- Create Grid for Adding New Cards-->
+                    <Grid x:Name="gridMvPAddNewCard" Visibility="Hidden" 
+                          Width="700"
+                          Height="350"
+                          HorizontalAlignment="Right"
+                          Margin="0,0,5,400"
+                          >
+                         <!--Define rows and columns-->
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <!--Create textblocks for Text Descriptions on column 0, grid 0-3
+                         Create textblock for GSItemID-->
+                        <TextBlock x:Name="txtblockGSItemIDCard" 
+                                   Text="Item ID : "
+                                   Foreground="AntiqueWhite"
+                                   FontSize="30"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Grid.Column="0"
+                                   Grid.Row="0"
+                                   />
+                         <!--Create textblock for GSItemType-->
+                        <TextBlock x:Name="txtblockGSItemTypeCard" 
+                                   Text="Item Type : "
+                                   Foreground="AntiqueWhite"
+                                   FontSize="30"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Grid.Column="0"
+                                   Grid.Row="1"
+                                   />
+                         <!--Create Texblock for GSItemDescription-->
+                        <TextBlock x:Name="txtblockGSItemDescriptionCard" 
+                                   Text="Item Description : "
+                                   Foreground="AntiqueWhite"
+                                   FontSize="30"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Grid.Column="0"
+                                   Grid.Row="2"
+                                   />
+                         <!--Create textblock for Qty-->
+                        <TextBlock x:Name="txtblockGSItemQtyCard" 
+                                   Text="Quantity : "
+                                   Foreground="AntiqueWhite"
+                                   FontSize="30"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Grid.Column="0"
+                                   Grid.Row="3"
+                                   />
+
+                        <!--Create textblock for GuildID-->
+                        <TextBlock x:Name="txtblockCardGuildID" 
+                                   Text="Guild ID: "
+                                   Foreground="AntiqueWhite"
+                                   FontSize="30"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Grid.Column="0"
+                                   Grid.Row="4"
+                                   />
+
+                        <!--Create text box for user input-->
+                        <TextBox x:Name="txtBoxItemIDCard"
+                                 Foreground="AntiqueWhite"
+                                 Grid.Column="1"
+                                 Grid.Row="0"
+                                 FontSize="30"
+                                 Height="50"
+                                 Width="320"
+                                 HorizontalAlignment="Center"
+                                 VerticalAlignment="Center"
+                                 Background="{x:Null}"
+                                 IsReadOnly="True"/>
+
+                        <!--Create Combo Box for multiple entries-->
+                        <TextBox x:Name="txtBoxItemTypeCard"
+                                 Foreground="AntiqueWhite"
+                                  FontSize="30"
+                                  Grid.Column="1"
+                                  Grid.Row="1"
+                                  Height="50"
+                                  Width="320"
+                                  HorizontalAlignment="Center"
+                                  VerticalAlignment="Center"
+                                  Background="{x:Null}">
+                        </TextBox>
+
+                         <!--Create textbox for Item Description-->
+                        <TextBox x:Name="txtBoxItemDescCard"
+                                 Foreground="AntiqueWhite"
+                                 Grid.Column="1"
+                                 Grid.Row="2"
+                                 FontSize="30"
+                                 Height="50"
+                                 Width="320"
+                                 HorizontalAlignment="Center"
+                                 VerticalAlignment="Center"
+                                 Background="{x:Null}"/>
+
+                        <!--Create textbox for Quantity-->
+                        <TextBox x:Name="txtBoxQtyCard"
+                                 Foreground="AntiqueWhite"
+                                 Grid.Column="1"
+                                 Grid.Row="3"
+                                 FontSize="30"
+                                 Height="50"
+                                 Width="320"
+                                 HorizontalAlignment="Center"
+                                 VerticalAlignment="Center"
+                                 Background="{x:Null}"/>
+
+                        <TextBox x:Name="txtBoxCardGuildID"
+                                 Foreground="AntiqueWhite"
+                                 Text="1"
+                                 Grid.Column="1"
+                                 Grid.Row="4"
+                                 FontSize="30"
+                                 Height="50"
+                                 Width="320"
+                                 HorizontalAlignment="Center"
+                                 VerticalAlignment="Center"
+                                 Background="{x:Null}"
+                                 IsReadOnly="True"/>
+
+                        <!--Create button for Adding the Item-->
+                        <Button x:Name="btnAddingItemCard"
+                                 Content="Add New Card"
+                                 Click="btnAddingItemCard_Click"
+                                 HorizontalAlignment="Center"
+                                 VerticalAlignment="Center"
+                                 FontSize="30"
+                                 Grid.Column="1"
+                                 Grid.Row="5"
+                                 FontFamily="Poor Richard"
+                                 Foreground="Black"
+                                 Width="270"
+                                 Height="50"
+                                 Margin="0,0,10,0" 
+                                 BorderThickness="4"
+                                 Background="LawnGreen">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="20"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+
+                         <!--Create button for Exit-->
+                        <Button x:Name="btnExitAddCard"
+                                 Content="Exit"
+                                 Click="btnExitAddCard_Click"
+                                 HorizontalAlignment="Center"
+                                 VerticalAlignment="Center"
+                                 FontSize="30"
+                                 Grid.Column="0"
+                                 Grid.Row="5"
+                                 FontFamily="Poor Richard"
+                                 Foreground="Black"
+                                 Width="200"
+                                 Height="50"
+                                 Margin="0,0,10,0" 
+                                 BorderThickness="4"
+                                 Background="LightCoral">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="20"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+
+                    </Grid>
+                    
+                    <!-- Create Grid for Adding New Miscellaneous-->
+                    <Grid x:Name="gridMvPAddNewMisc" Visibility="Hidden" 
+                          Width="700"
+                          Height="350"
+                          HorizontalAlignment="Right"
+                          Margin="0,0,5,400"
+                          >
+                        <!--Define rows and columns-->
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <!--Create textblocks for Text Descriptions on column 0, grid 0-3
+                         Create textblock for GSItemID-->
+                        <TextBlock x:Name="txtblockGSItemIDMisc" 
+                                   Text="Item ID : "
+                                   Foreground="AntiqueWhite"
+                                   FontSize="30"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Grid.Column="0"
+                                   Grid.Row="0"
+                                   />
+                        <!--Create textblock for GSItemType-->
+                        <TextBlock x:Name="txtblockGSItemTypeMisc" 
+                                   Text="Item Type : "
+                                   Foreground="AntiqueWhite"
+                                   FontSize="30"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Grid.Column="0"
+                                   Grid.Row="1"
+                                   />
+                        <!--Create Texblock for GSItemDescription-->
+                        <TextBlock x:Name="txtblockGSItemDescriptionMisc" 
+                                   Text="Item Description : "
+                                   Foreground="AntiqueWhite"
+                                   FontSize="30"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Grid.Column="0"
+                                   Grid.Row="2"
+                                   />
+                        <!--Create textblock for Qty-->
+                        <TextBlock x:Name="txtblockGSItemQtyMisc" 
+                                   Text="Quantity : "
+                                   Foreground="AntiqueWhite"
+                                   FontSize="30"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Grid.Column="0"
+                                   Grid.Row="3"
+                                   />
+
+                        <!--Create textblock for GuildID-->
+                        <TextBlock x:Name="txtblockMiscGuildID" 
+                                   Text="Guild ID: "
+                                   Foreground="AntiqueWhite"
+                                   FontSize="30"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Grid.Column="0"
+                                   Grid.Row="4"
+                                   />
+
+                        <!--Create text box for user input-->
+                        <TextBox x:Name="txtBoxItemIDMisc"
+                                 Foreground="AntiqueWhite"
+                                 Grid.Column="1"
+                                 Grid.Row="0"
+                                 FontSize="30"
+                                 Height="50"
+                                 Width="320"
+                                 HorizontalAlignment="Center"
+                                 VerticalAlignment="Center"
+                                 Background="{x:Null}"
+                                 IsReadOnly="True"/>
+
+                        <!--Create Combo Box for multiple entries-->
+                        <TextBox x:Name="txtBoxItemTypeMisc"
+                                 Foreground="AntiqueWhite"
+                                  FontSize="30"
+                                  Grid.Column="1"
+                                  Grid.Row="1"
+                                  Height="50"
+                                  Width="320"
+                                  HorizontalAlignment="Center"
+                                  VerticalAlignment="Center"
+                                  Background="{x:Null}">
+                        </TextBox>
+
+                        <!--Create textbox for Item Description-->
+                        <TextBox x:Name="txtBoxItemDescMisc"
+                                 Foreground="AntiqueWhite"
+                                 Grid.Column="1"
+                                 Grid.Row="2"
+                                 FontSize="30"
+                                 Height="50"
+                                 Width="320"
+                                 HorizontalAlignment="Center"
+                                 VerticalAlignment="Center"
+                                 Background="{x:Null}"/>
+
+                        <!--Create textbox for Quantity-->
+                        <TextBox x:Name="txtBoxQtyMisc"
+                                 Foreground="AntiqueWhite"
+                                 Grid.Column="1"
+                                 Grid.Row="3"
+                                 FontSize="30"
+                                 Height="50"
+                                 Width="320"
+                                 HorizontalAlignment="Center"
+                                 VerticalAlignment="Center"
+                                 Background="{x:Null}"/>
+                        
+                        <TextBox x:Name="txtBoxMiscGuildID"
+                                 Foreground="AntiqueWhite"
+                                 Text="1"
+                                 Grid.Column="1"
+                                 Grid.Row="4"
+                                 FontSize="30"
+                                 Height="50"
+                                 Width="320"
+                                 HorizontalAlignment="Center"
+                                 VerticalAlignment="Center"
+                                 Background="{x:Null}"
+                                 IsReadOnly="True"/>
+
+                        <!--Create button for Adding the Item-->
+                        <Button x:Name="btnAddingItemMisc"
+                                 Content="Add New Misc"
+                                 Click="btnAddingItemMisc_Click"
+                                 HorizontalAlignment="Center"
+                                 VerticalAlignment="Center"
+                                 FontSize="30"
+                                 Grid.Column="1"
+                                 Grid.Row="5"
+                                 FontFamily="Poor Richard"
+                                 Foreground="Black"
+                                 Width="270"
+                                 Height="50"
+                                 Margin="0,0,10,0" 
+                                 BorderThickness="4"
+                                 Background="LawnGreen">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="20"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+
+                        <!--Create button for Exit-->
+                        <Button x:Name="btnExitAddMisc"
+                                 Content="Exit"
+                                 Click="btnExitAddMisc_Click"
+                                 HorizontalAlignment="Center"
+                                 VerticalAlignment="Center"
+                                 FontSize="30"
+                                 Grid.Column="0"
+                                 Grid.Row="5"
+                                 FontFamily="Poor Richard"
+                                 Foreground="Black"
+                                 Width="200"
+                                 Height="50"
+                                 Margin="0,0,10,0" 
+                                 BorderThickness="4"
+                                 Background="LightCoral">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="20"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+
+                    </Grid>
+                    
+                    <!-- Create Grid for Updating Item-->
+                    <Grid x:Name="gridMvPUpDateItem" Visibility="Hidden" 
+                          Width="700"
+                          Height="350"
+                          HorizontalAlignment="Right"
+                          Margin="0,0,5,400"
+                          >
+                        <!--Define rows and columns-->
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <!--Create textblocks for Text Descriptions on column 0, grid 0-3
+                         Create textblock for GSItemID-->
+                        <TextBlock x:Name="txtblockUpdID" 
+                                   Text="Item ID : "
+                                   Foreground="AntiqueWhite"
+                                   FontSize="30"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Grid.Column="0"
+                                   Grid.Row="0"
+                                   />
+                        <!--Create textblock for GSItemType-->
+                        <TextBlock x:Name="txtblockUpdType" 
+                                   Text="Item Type : "
+                                   Foreground="AntiqueWhite"
+                                   FontSize="30"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Grid.Column="0"
+                                   Grid.Row="1"
+                                   />
+                        <!--Create Texblock for GSItemDescription-->
+                        <TextBlock x:Name="txtblockUpdDesc" 
+                                   Text="Item Description : "
+                                   Foreground="AntiqueWhite"
+                                   FontSize="30"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Grid.Column="0"
+                                   Grid.Row="2"
+                                   />
+                        <!--Create textblock for Qty-->
+                        <TextBlock x:Name="txtblockUpdQty" 
+                                   Text="Quantity : "
+                                   Foreground="AntiqueWhite"
+                                   FontSize="30"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Grid.Column="0"
+                                   Grid.Row="3"
+                                   />
+
+                        <!--Create textblock for GuildID-->
+                        <TextBlock x:Name="txtblockUpdGuildID" 
+                                   Text="Guild ID: "
+                                   Foreground="AntiqueWhite"
+                                   FontSize="30"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Grid.Column="0"
+                                   Grid.Row="4"
+                                   />
+
+                        <!--Create text box for user input-->
+                        <TextBox x:Name="txtBoxUpdID"
+                                 Foreground="AntiqueWhite"
+                                 Grid.Column="1"
+                                 Grid.Row="0"
+                                 FontSize="30"
+                                 Height="50"
+                                 Width="320"
+                                 HorizontalAlignment="Center"
+                                 VerticalAlignment="Center"
+                                 Background="{x:Null}"
+                                 IsReadOnly="True"/>
+
+                        <!--Create Combo Box for multiple entries-->
+                        <TextBox x:Name="txtBoxUpdType"
+                                 Foreground="AntiqueWhite"
+                                  FontSize="30"
+                                  Grid.Column="1"
+                                  Grid.Row="1"
+                                  Height="50"
+                                  Width="320"
+                                  HorizontalAlignment="Center"
+                                  VerticalAlignment="Center"
+                                  Background="{x:Null}"
+                                 IsReadOnly="True">
+                        </TextBox>
+
+                        <!--Create textbox for Item Description-->
+                        <TextBox x:Name="txtBoxUpdDesc"
+                                 Foreground="AntiqueWhite"
+                                 Grid.Column="1"
+                                 Grid.Row="2"
+                                 FontSize="30"
+                                 Height="50"
+                                 Width="320"
+                                 HorizontalAlignment="Center"
+                                 VerticalAlignment="Center"
+                                 Background="{x:Null}"
+                                 IsReadOnly="True"/>
+
+                        <!--Create textbox for Quantity-->
+                        <TextBox x:Name="txtBoxUpdQty"
+                                 Foreground="AntiqueWhite"
+                                 Grid.Column="1"
+                                 Grid.Row="3"
+                                 FontSize="30"
+                                 Height="50"
+                                 Width="320"
+                                 HorizontalAlignment="Center"
+                                 VerticalAlignment="Center"
+                                 Background="{x:Null}"/>
+
+                        <!--Create Textbox for GuildID-->
+                        <TextBox x:Name="txtBoxUpdGuildID"
+                                 Foreground="AntiqueWhite"
+                                 Text="1"
+                                 Grid.Column="1"
+                                 Grid.Row="4"
+                                 FontSize="30"
+                                 Height="50"
+                                 Width="320"
+                                 HorizontalAlignment="Center"
+                                 VerticalAlignment="Center"
+                                 Background="{x:Null}"
+                                 IsReadOnly="True"/>
+
+                        <!--Create button for Adding the Item-->
+                        <Button x:Name="btnUpdItem"
+                                 Content="Update Item"
+                                 Click="btnUpdItem_Click"
+                                 HorizontalAlignment="Center"
+                                 VerticalAlignment="Center"
+                                 FontSize="30"
+                                 Grid.Column="1"
+                                 Grid.Row="5"
+                                 FontFamily="Poor Richard"
+                                 Foreground="Black"
+                                 Width="270"
+                                 Height="50"
+                                 Margin="0,0,10,0" 
+                                 BorderThickness="4"
+                                 Background="LawnGreen">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="20"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+
+                        <!--Create button for Exit-->
+                        <Button x:Name="btnExitUpd"
+                                 Content="Exit"
+                                 Click="btnExitUpd_Click"
+                                 HorizontalAlignment="Center"
+                                 VerticalAlignment="Center"
+                                 FontSize="30"
+                                 Grid.Column="0"
+                                 Grid.Row="5"
+                                 FontFamily="Poor Richard"
+                                 Foreground="Black"
+                                 Width="200"
+                                 Height="50"
+                                 Margin="0,0,10,0" 
+                                 BorderThickness="4"
+                                 Background="LightCoral">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="20"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+
+                    </Grid>
+                </Grid>
+            </Grid>
+
+            <!-- Create grid for back button-->
+            <Grid x:Name="gridBackButton" Margin="0,10,962,580" RenderTransformOrigin="0.729,0.421" Visibility="Hidden">
+                <!-- Create a Button for goin Back Guild-->
+                <Button x:Name="btnGoBack"
+                        Content="Back"
+                        Click="btnGoBack_Click"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Bottom"
+                        FontSize="30"
+                        FontFamily="Poor Richard"
+                        Foreground="Black"
+                        Width="200"
+                        Height="50"
+                        Margin="0,0,10,0" 
+                        BorderThickness="4"
+                        Background="LightCoral">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="20"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+                <Grid.Background>
+                    <ImageBrush ImageSource="C:\Users\Hung\Pictures\ImageSourcePics\Porings.png" Stretch="UniformToFill"/>
+                </Grid.Background>
+            </Grid>
+        </Grid>
+    </Border>
+</UserControl>

@@ -1,0 +1,34 @@
+﻿<Window x:Class="MSSAFirstProject.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MSSAFirstProject"
+        mc:Ignorable="d"
+        Title="Hung's Window" Height="800" Width="1200" WindowStyle="None"
+        WindowStartupLocation="CenterScreen" ResizeMode="NoResize" MouseDown="Window_MouseDown">
+
+    <!--Creating source for buttons-->
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="FontWeight" Value="SemiBold" />
+                    <Setter Property="Background" Value="Transparent" />
+                    <Setter Property="RenderTransformOrigin" Value=".5, .5"/>
+                    <Setter Property="RenderTransform">
+                        <Setter.Value>
+                            <ScaleTransform ScaleX="1.1" ScaleY="1.1"/>
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property="BorderBrush" Value="Transparent"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <UserControl x:Name="myControls" Loaded="myControls_Loaded"/>
+        
+    </Grid>
+</Window>

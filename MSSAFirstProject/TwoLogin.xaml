@@ -1,0 +1,154 @@
+﻿<UserControl x:Class="MSSAFirstProject.TwoLogin"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MSSAFirstProject"
+             mc:Ignorable="d" 
+             d:DesignHeight="800" d:DesignWidth="1200">
+    
+
+
+    <!-- A window can only have One border and One Stack Panel-->
+    <!-- Create a Border for padding-->
+    <Border Padding="2">
+        <!-- Create a StackPanel to stack multiple items and then put in background image-->
+        <StackPanel x:Name="StackLogin">
+            <StackPanel.Background>
+                <ImageBrush ImageSource="C:\Users\Hung\Pictures\ImageSourcePics\Main.jpg"/>
+            </StackPanel.Background>
+
+            <!--Create a grid for Header for easy manipulation -->
+            <Grid x:Name="gridLoginHeader">
+                <TextBlock Text="Rinse N' Repeat"
+                           HorizontalAlignment="Center" 
+                           FontWeight="DemiBold"
+                           FontSize="100"
+                           x:Name="txtblockHeaderLogin"
+                           FontFamily="Poor Richard" 
+                           Background="{x:Null}" 
+                           Foreground="#FFFFBCBC">
+                </TextBlock>
+            </Grid>
+
+            <!-- Create a grid for the body-->
+            <!-- Measure the grid columns and rows to put in contents-->
+            <Grid x:Name="gridLoginBody" Height="652">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <!-- Create Textblocks instead of Labels for more functions-->
+
+                <!-- Create TextBlocks for Username-->
+                <TextBlock x:Name="txtblockUserName"
+                           Text="UserName:"
+                           HorizontalAlignment="Right"
+                           VerticalAlignment="Bottom"
+                           FontSize="35"
+                           Grid.Column="0"
+                           Grid.Row="2"
+                           FontFamily="Poor Richard"
+                           Foreground="#FFFFBCBC"
+                           Background="{x:Null}"
+                           Margin="0,0,35,25"/>
+
+                <!-- Create TextBlock for Password-->
+                <TextBlock x:Name="txtblockPassword"
+                           Text="Password:"
+                           HorizontalAlignment="Right"
+                           VerticalAlignment="Top"
+                           FontSize="35"
+                           Grid.Column="0"
+                           Grid.Row="3"
+                           FontFamily="Poor Richard"
+                           Foreground="#FFFFBCBC"
+                           Background="{x:Null}"
+                           Margin="0,25,35,0"/>
+
+                <!-- Create a Textbox to write content-->
+                <TextBox x:Name="txtUserName"
+                         HorizontalAlignment="Left"
+                         VerticalAlignment="Bottom"
+                         FontSize="30"
+                         Grid.Column="1"
+                         Grid.Row="2"
+                         FontFamily="Poor Richard"
+                         Foreground="#FFFFBCBC"
+                         Background="{x:Null}"
+                         Width="260"
+                         Height="50"
+                         Margin="20,0,0,15"/>
+                <!-- Create a Password Box for password for security-->
+                <PasswordBox x:Name="pwboxPassword"
+                             HorizontalAlignment="Left"
+                             VerticalAlignment="Top"
+                             FontSize="30"
+                             Grid.Column="1"
+                             Grid.Row="3"
+                             FontFamily="Poor Richard"
+                             Foreground="#FFFFBCBC"
+                             Background="{x:Null}"
+                             Width="260"
+                             Height="50"
+                             Margin="20,15,0,0"/>
+
+                <!-- Create a button for Login to go to next screen-->
+                <Button x:Name="btnLogin"
+                        Content="Login"
+                        Click="btnLogin_Click"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        FontSize="30"
+                        Grid.Column="2"
+                        Grid.Row="3"
+                        FontFamily="Poor Richard"
+                        Foreground="Black"
+                        Width="260"
+                        Height="50"
+                        Margin="20,15,0,0" 
+                        BorderThickness="4"
+                        Background="LightCyan">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="20"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+
+                <!-- Create an Exit button to exit this Window since we decided to change Window Style-->
+                <Button x:Name="btnExit"
+                        Content="Exit"
+                        Click="btnExit_Click"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Bottom"
+                        FontSize="30"
+                        Grid.Column="3"
+                        Grid.Row="4"
+                        FontFamily="Poor Richard"
+                        Foreground="Black"
+                        Width="120"
+                        Height="50"
+                        Margin="0,0,10,10"
+                        BorderThickness="4"
+                        Background="LightSkyBlue">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="20"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+            </Grid>
+        </StackPanel>
+    </Border>
+</UserControl>
